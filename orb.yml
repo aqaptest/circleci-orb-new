@@ -18,8 +18,8 @@ examples:
           executor: aqaptest/default
           steps:
             - aqaptest/execute-suite:
-				api-key: <your-cloudqa-api-key>
-				suite-id: <your-cloudqa-suite-id>
+                api-key: <your-cloudqa-api-key>
+                suite-id: <your-cloudqa-suite-id>
 
 commands:
   execute-suite:
