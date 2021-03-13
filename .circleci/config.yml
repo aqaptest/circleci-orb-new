@@ -33,10 +33,10 @@ jobs:
         default: $CLOUDQA_BASE_URL
       variables:
         type: string
-        description: (optional) Modify the variables to set variables of your suite, defaults to `{}`.
+        description: (optional) Modify the variables to set variables of your suite, defaults to ``.
         default: $CLOUDQA_VARIABLES
       is-sequential-execution:
-        type: boolean
+        type: string
         description: (optional) Modify the is sequential execution to execution type(sequential, parallel) of your suite, defaults to `true`.
         default: $CLOUDQA_SEQUENTIAL_EXECUTION
       environment-name:
