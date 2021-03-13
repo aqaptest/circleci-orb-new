@@ -1,7 +1,7 @@
 version: 2.1
 
-orbs:
-  aqaptest: aqaptest/testsuite-runner@0.0.1
+#orbs:
+  #aqaptest: aqaptest/testsuite-runner@0.0.1
   
 executors:
   machine-executor:
@@ -10,14 +10,39 @@ executors:
       
 jobs:
   execute-suite-command:
-    environment:
-       CLOUDQA_API_KEY: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
-       CLOUDQA_SUITE_ID: 2096
-       CLOUDQA_BROWSER: Chrome
-       CLOUDQA_BUILD_TAG: "Parallel test"
-       CLOUDQA_BASE_URL: "http://www.seleniumeasy.com/"
-       CLOUDQA_VARIABLES: "var1=val1,var2=val2"
-       CLOUDQA_SEQUENTIAL_EXECUTION: FALSE
+    parameters:
+      api-key:
+        type: string
+        description: Your CloudQA API key.
+        default: $CLOUDQA_API_KEY
+      suite-id:
+        type: string
+        description: ID of the CloudQA suite to execute.
+		default: $CLOUDQA_SUITE_ID
+      browser:
+        type: string
+        description: (optional) Modify the browser to execute your suite against, defaults to `Chrome`.
+        default: $CLOUDQA_BROWSER
+      build-tag:
+        type: string
+        description: (optional) Modify the build tag to set build id of your suite, defaults to ``.
+        default: $CLOUDQA_BUILD_TAG
+	  base-url:
+        type: string
+        description: (optional) Modify the base url to execute your suite against, defaults to ``.
+        default: $CLOUDQA_BASE_URL
+      variables:
+        type: string
+        description: (optional) Modify the variables to set variables of your suite, defaults to `{}`.
+        default: $CLOUDQA_VARIABLES
+	  is-sequential-execution:
+        type: boolean
+        description: (optional) Modify the is sequential execution to execution type(sequential, parallel) of your suite, defaults to `true`.
+        default: $CLOUDQA_SEQUENTIAL_EXECUTION
+	  environment-name:
+        type: string
+        description: (optional) Modify the environment name to execute your suite against, defaults to ``.
+        default: $CLOUDQA_ENVIRONMENT_NAME
     executor: machine-executor
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
@@ -27,4 +52,6 @@ jobs:
 workflows:
   test:
     jobs:
-      - execute-suite-command
+      - execute-suite-command:
+          api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
+          suite-id: "2682"
