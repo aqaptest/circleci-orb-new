@@ -18,7 +18,7 @@ jobs:
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
-		default: $CLOUDQA_SUITE_ID
+	default: $CLOUDQA_SUITE_ID
       browser:
         type: string
         description: (optional) Modify the browser to execute your suite against, defaults to `Chrome`.
@@ -27,7 +27,7 @@ jobs:
         type: string
         description: (optional) Modify the build tag to set build id of your suite, defaults to ``.
         default: $CLOUDQA_BUILD_TAG
-	  base-url:
+      base-url:
         type: string
         description: (optional) Modify the base url to execute your suite against, defaults to ``.
         default: $CLOUDQA_BASE_URL
@@ -35,11 +35,11 @@ jobs:
         type: string
         description: (optional) Modify the variables to set variables of your suite, defaults to `{}`.
         default: $CLOUDQA_VARIABLES
-	  is-sequential-execution:
+      is-sequential-execution:
         type: boolean
         description: (optional) Modify the is sequential execution to execution type(sequential, parallel) of your suite, defaults to `true`.
         default: $CLOUDQA_SEQUENTIAL_EXECUTION
-	  environment-name:
+      environment-name:
         type: string
         description: (optional) Modify the environment name to execute your suite against, defaults to ``.
         default: $CLOUDQA_ENVIRONMENT_NAME
