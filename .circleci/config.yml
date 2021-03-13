@@ -49,7 +49,7 @@ jobs:
         CLOUDQA_BASE_URL: << parameters.base-url >>
         CLOUDQA_VARIABLES: << parameters.variables >>
         CLOUDQA_SEQUENTIAL_EXECUTION: << parameters.is-sequential-execution >>
-	      CLOUDQA_ENVIRONMENT_NAME: << parameters.environment-name >>
+        CLOUDQA_ENVIRONMENT_NAME: << parameters.environment-name >>
     executor: machine-executor
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
