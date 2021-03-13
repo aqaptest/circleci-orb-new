@@ -10,9 +10,16 @@ executors:
       
 jobs:
   execute-suite-command:
+    parameters:
+      api-key:
+        type: string
+        description: Your CloudQA API key.
+      suite-id:
+        type: string
+        description: ID of the CloudQA suite to execute.
     environment:
-       CLOUDQA_API_KEY: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
-       CLOUDQA_SUITE_ID: 2096
+       CLOUDQA_API_KEY: << parameters.api-key >>
+       CLOUDQA_SUITE_ID: << parameters.suite-id >>
     executor: machine-executor
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
@@ -22,4 +29,6 @@ jobs:
 workflows:
   test:
     jobs:
-      - execute-suite-command
+      - execute-suite-command:
+          api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
+          suite-id: "2096"
