@@ -24,10 +24,10 @@ examples:
 commands:
   execute-suite:
     description: |
-      Trigger your CloudQA test suite from a CircleCI build, passing in the suite `api-key`, `suite-id`, optional
-      `browser`, optional `build-tag`, optional `base-url`, optional `variables`,
-	  optional `is-sequential-execution` and optional `environment-name` required for your suite.
-	  the test suite runner will pass or fail your build with the status of your suite
+      Trigger your CloudQA test suite from a CircleCI build, passing in the suite `api-key`, `suite-id`,
+      optional `browser`, optional `build-tag`, optional `base-url`, optional `variables`,
+      optional `is-sequential-execution` and optional `environment-name` required for your suite.
+      the test suite runner will pass or fail your build with the status of your suite.
     parameters:
       api-key:
         type: string
