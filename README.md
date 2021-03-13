@@ -1,7 +1,7 @@
 test-circleci
 ===================
 
-[![CircleCI](https://circleci.com/gh/aqaptest/test-circleci-orb-v1.svg?style=svg)](https://circleci.com/gh/aqaptest/test-circleci-orb-v1)
+[![CircleCI](https://circleci.com/gh/aqaptest/circleci-orb.svg?style=svg)](https://circleci.com/gh/aqaptest/circleci-orb)
 
 [![test results](https://app.cloudqa.io/Recoder/SuiteBadge/1070?token=axbvil%%2F1r21iQ2Wd4ku%2Bv5RMdv1ejGyg%3D)](https://stage.cloudqa.io/Recoder/TestSuitesSummary/1070)
 
