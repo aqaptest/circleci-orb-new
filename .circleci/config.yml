@@ -46,7 +46,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y jq
       - run:
         name: Execute Ghost Inspector tests
-	command: |
+        command: |
                 APIKEY='<< parameters.api-key >>'
                 echo "APIKEY: $APIKEY"
                 SUITE_ID='<< parameters.suite-id >>'
