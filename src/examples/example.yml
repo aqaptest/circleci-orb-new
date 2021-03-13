@@ -1,8 +1,0 @@
-version: 2.1
-orbs:
-  aqaptest: aqaptest/testsuite-runner@0.0.1
-jobs:
-  use-my-orb:
-    executor: default
-    steps:
-      - aqaptest/build
