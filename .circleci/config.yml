@@ -18,7 +18,7 @@ jobs:
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
-	default: $CLOUDQA_SUITE_ID
+        default: $CLOUDQA_SUITE_ID
       browser:
         type: string
         description: (optional) Modify the browser to execute your suite against, defaults to `Chrome`.
