@@ -44,7 +44,7 @@ jobs:
     executor: machine-executor
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
-      - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/27674afb424643b8934cf89046ffad7e/cloudqa-app-circleci_v2.sh
+      - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/da80af13da7e4bd6b4e75802385da319/cloudqa-app-circleci_v2.sh
       - run: bash cloudqa-app-circleci_v2.sh
       
 workflows:
