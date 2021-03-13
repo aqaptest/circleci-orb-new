@@ -45,8 +45,8 @@ jobs:
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
       - run: 
-			name: Execute Ghost Inspector tests
-			command: |
+	  name: Execute Ghost Inspector tests
+	  command: |
                 APIKEY='<< parameters.api-key >>'
                 echo "APIKEY: $APIKEY"
                 SUITE_ID='<< parameters.suite-id >>'
@@ -237,5 +237,5 @@ workflows:
   test:
     jobs:
       - execute-suite-command:
-		      api-key: 'MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI='
-		      suite-id: '2682'
+          api-key: 'MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI='
+          suite-id: '2682'
