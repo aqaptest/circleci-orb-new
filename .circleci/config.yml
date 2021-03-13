@@ -14,39 +14,37 @@ jobs:
       api-key:
         type: string
         description: Your CloudQA API key.
-        default: $CLOUDQA_API_KEY
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
-        default: $CLOUDQA_SUITE_ID
       browser:
         type: string
         description: (optional) Modify the browser to execute your suite against, defaults to `Chrome`.
-        default: $CLOUDQA_BROWSER
+        default: 'Chrome'
       build-tag:
         type: string
         description: (optional) Modify the build tag to set build id of your suite, defaults to ``.
-        default: $CLOUDQA_BUILD_TAG
+        default: ''
       base-url:
         type: string
         description: (optional) Modify the base url to execute your suite against, defaults to ``.
-        default: $CLOUDQA_BASE_URL
+        default: ''
       variables:
         type: string
         description: (optional) Modify the variables to set variables of your suite, defaults to ``.
-        default: $CLOUDQA_VARIABLES
+        default: ''
       is-sequential-execution:
-        type: string
+        type: boolean
         description: (optional) Modify the is sequential execution to execution type(sequential, parallel) of your suite, defaults to `true`.
-        default: $CLOUDQA_SEQUENTIAL_EXECUTION
+        default: true
       environment-name:
         type: string
         description: (optional) Modify the environment name to execute your suite against, defaults to ``.
-        default: $CLOUDQA_ENVIRONMENT_NAME
+        default: ''
     executor: machine-executor
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
-      - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/28cb57ae611041d2a44ae2bcb3bbad66/cloudqa-app-circleci.sh
+      - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/27674afb424643b8934cf89046ffad7e/cloudqa-app-circleci_v2.sh
       - run: bash cloudqa-app-circleci.sh
       
 workflows:
