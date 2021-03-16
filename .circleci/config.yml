@@ -7,7 +7,7 @@ executors:
         type: string
         default: '2021.03'
     docker:
-      - image: cimg/node:<<parameters.tag>>
+      - image: cimg/base:<<parameters.tag>>
       
 jobs:
 
@@ -56,7 +56,8 @@ jobs:
       CLOUDQA_ENVIRONMENT_NAME: << parameters.environment-name >>
 
     executor: 
-      docker-executor
+      name: docker-executor
+      tag: '2021.02'
       
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
