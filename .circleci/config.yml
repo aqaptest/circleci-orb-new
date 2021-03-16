@@ -1,19 +1,17 @@
 version: 2.1
 
-#orbs:
-  #aqaptest: aqaptest/testsuite-runner@0.0.1
-  
 executors:
-  default:
-    docker:
-      image: cimg/node:<<parameters.tag>>
+  docker-executor:
+    image: cimg/node:<<parameters.tag>>
       parameters:
         tag:
           default: '2021.03'
           type: string
       
 jobs:
-  test:
+
+  execute:
+  
     parameters:
       api-key:
         type: string
@@ -45,29 +43,28 @@ jobs:
         type: string
         description: (optional) Modify the environment name to execute your suite against, defaults to ``.
         default: ''
-        
-   environment:
-     CLOUDQA_API_KEY: << parameters.api-key >>
-     CLOUDQA_SUITE_ID: << parameters.suite-id >>
-     CLOUDQA_BROWSER: << parameters.browser >>
-     CLOUDQA_BUILD_TAG: << parameters.build-tag >>
-     CLOUDQA_BASE_URL: << parameters.base-url >>
-     CLOUDQA_VARIABLES: << parameters.variables >>
-     CLOUDQA_SEQUENTIAL_EXECUTION: << parameters.is-sequential-execution >>
-     CLOUDQA_ENVIRONMENT_NAME: << parameters.environment-name >>
-     
-    executor:
-        name: default
-        tag: "2021.02"
-        
+		
+    environment:
+	  CLOUDQA_API_KEY: << parameters.api-key >>
+      CLOUDQA_SUITE_ID: << parameters.suite-id >>
+      CLOUDQA_BROWSER: << parameters.browser >>
+      CLOUDQA_BUILD_TAG: << parameters.build-tag >>
+      CLOUDQA_BASE_URL: << parameters.base-url >>
+      CLOUDQA_VARIABLES: << parameters.variables >>
+      CLOUDQA_SEQUENTIAL_EXECUTION: << parameters.is-sequential-execution >>
+      CLOUDQA_ENVIRONMENT_NAME: << parameters.environment-name >>
+	  
+    executor: 
+	  docker-executor:
+	    tag: '2021.02'
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
       - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/28cb57ae611041d2a44ae2bcb3bbad66/cloudqa-app-circleci.sh
-      - run: bash cloudqa-app-circleci.sh
+      - run: command: bash cloudqa-app-circleci.sh
       
 workflows:
   test:
     jobs:
-      - test:
+      - execute:
           api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
           suite-id: "2096"
