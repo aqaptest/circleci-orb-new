@@ -70,7 +70,7 @@ workflows:
   test:
     jobs:
       - execute:
-          context: CloudQA
+          context: orb-publishing
           #api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
           #api-key: $CLOUDQA_API_KEY
           suite-id: "2096"
