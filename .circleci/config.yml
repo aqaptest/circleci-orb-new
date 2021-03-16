@@ -57,6 +57,7 @@ jobs:
 
     executor: 
       docker-executor:
+        name: docker-executor
         tag: '2021.02'
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
