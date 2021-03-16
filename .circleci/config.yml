@@ -4,9 +4,13 @@ version: 2.1
   #aqaptest: aqaptest/testsuite-runner@0.0.1
   
 executors:
-  machine-executor:
-    machine:
-      image: ubuntu-2004:202010-01
+  docker-executor:
+    docker:
+      - image: 'cimg/node:<<parameters.tag>>'
+      parameters:
+        tag:
+          default: '2021.03'
+          type: string
       
 jobs:
   execute-suite-command:
@@ -42,7 +46,9 @@ jobs:
         description: (optional) Modify the environment name to execute your suite against, defaults to ``.
         default: ''
    
-    executor: machine-executor
+    executor:
+        name: docker-executor
+        tag: "2021.02"
     steps:
       - run: sudo apt-get update && sudo apt-get install -y jq
       - run: curl -O https://cquserfiles.s3.amazonaws.com/6394/28cb57ae611041d2a44ae2bcb3bbad66/cloudqa-app-circleci.sh
