@@ -68,6 +68,6 @@ jobs:
 workflows:
   test:
     jobs:
-      - execute-suite-command:
+      - execute:
           api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
           suite-id: "2096"
