@@ -17,7 +17,6 @@ jobs:
       api-key:
         type: string
         description: Your CloudQA API key.
-        default: $CLOUDQA_API_KEY
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
@@ -70,5 +69,5 @@ workflows:
     jobs:
       - execute:
           #api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
-          #api-key: $CLOUDQA_API_KEY
+          api-key: $CLOUDQA_API_KEY
           suite-id: "2096"
