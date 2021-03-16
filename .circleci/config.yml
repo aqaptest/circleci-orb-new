@@ -17,7 +17,7 @@ jobs:
       api-key:
         type: string
         description: Your CloudQA API key.
-        default: '${CLOUDQA_API_KEY}'
+        default: CLOUDQA_API_KEY
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
