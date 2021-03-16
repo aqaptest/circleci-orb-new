@@ -14,10 +14,6 @@ jobs:
   execute:
   
     parameters:
-      api-key:
-        type: string
-        description: Your CloudQA API key.
-        default: CLOUDQA_API_KEY
       suite-id:
         type: string
         description: ID of the CloudQA suite to execute.
@@ -47,7 +43,6 @@ jobs:
         default: ''
 
     environment:
-      CLOUDQA_API_KEY: << parameters.api-key >>
       CLOUDQA_SUITE_ID: << parameters.suite-id >>
       CLOUDQA_BROWSER: << parameters.browser >>
       CLOUDQA_BUILD_TAG: << parameters.build-tag >>
@@ -70,7 +65,4 @@ workflows:
   test:
     jobs:
       - execute:
-          #context: orb-publishing
-          #api-key: "MPzTXks8vUKo0/at0yExuMZ0DqH+Nd+1/xybvc4pdiI="
-          #api-key: $CLOUDQA_API_KEY
-          suite-id: "2682"
+          suite-id: "2096"
