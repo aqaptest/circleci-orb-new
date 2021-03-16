@@ -47,8 +47,7 @@ jobs:
         default: ''
 
     environment:
-      #CLOUDQA_API_KEY: << parameters.api-key >>
-      CLOUDQA_API_KEY: $CQA_API_KEY
+      CLOUDQA_API_KEY: << parameters.api-key >>
       CLOUDQA_SUITE_ID: << parameters.suite-id >>
       CLOUDQA_BROWSER: << parameters.browser >>
       CLOUDQA_BUILD_TAG: << parameters.build-tag >>
