@@ -2,7 +2,8 @@ version: 2.1
 
 executors:
   docker-executor:
-    image: cimg/node:<<parameters.tag>>
+    docker:
+      image: cimg/node:<<parameters.tag>>
       parameters:
         tag:
           default: '2021.03'
