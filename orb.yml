@@ -75,6 +75,15 @@ commands:
          command: bash cloudqa-app-circleci.sh
 
 executors:
-  default:
-    machine:
-      image: ubuntu-2004:202010-01
+    default:
+        description: |
+            Select the version of Ubuntu Docker image to use. Uses CircleCI's highly cached convenience images built for CI.
+            Any available tag from this list can be used: https://hub.docker.com/r/cimg/base/tags
+        docker:
+            - image: cimg/base:<<parameters.tag>>
+        parameters:
+            tag:
+                default: "2021.03"
+                description: |
+                    Pick a specific cimg/base image version tag: https://hub.docker.com/r/cimg/base
+                type: string
