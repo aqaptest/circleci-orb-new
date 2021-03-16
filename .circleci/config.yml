@@ -3,11 +3,11 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      image: cimg/node:<<parameters.tag>>
-      parameters:
-        tag:
-          default: '2021.03'
-          type: string
+      - image: cimg/node:<<parameters.tag>>
+        parameters:
+          tag:
+            default: '2021.03'
+            type: string
       
 jobs:
 
